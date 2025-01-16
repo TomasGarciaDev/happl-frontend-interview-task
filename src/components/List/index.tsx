@@ -24,12 +24,6 @@ const List = () => {
           <Card key={allowance.id} allowance={allowance}></Card>
         ))}
       </div>
-
-      <div className="py-8">
-        {allowances.map((allowance) => (
-          <div key={allowance.id}>{JSON.stringify(allowance)}</div>
-        ))}
-      </div>
     </div>
   )
 }
