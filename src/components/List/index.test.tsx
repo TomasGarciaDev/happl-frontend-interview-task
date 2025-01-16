@@ -1,4 +1,4 @@
-import { render, waitFor } from '@testing-library/react'
+import { render, waitFor, screen } from '@testing-library/react'
 import List from '@/components/List'
 import '@testing-library/jest-dom'
 import 'jest-fetch-mock'
@@ -12,5 +12,12 @@ describe('List', () => {
   it('renders as expected', async () => {
     const { container } = render(<List />)
     await waitFor(() => expect(container).toMatchSnapshot())
+  })
+
+  it('renders the Allowances heading', async () => {
+    render(<List />)
+
+    const heading = await screen.findByRole('heading', { name: /Allowances/i })
+    expect(heading).toBeInTheDocument()
   })
 })
