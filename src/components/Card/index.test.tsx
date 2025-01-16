@@ -87,7 +87,7 @@ describe('Card', () => {
   it('renders the correct amount and renewal type', () => {
     render(<Card allowance={mockAllowance} />)
 
-    const amountText = screen.getByText(/\$100 \/ Monthly/i)
+    const amountText = screen.getByText(/\£100 \/ Month/i)
     expect(amountText).toBeInTheDocument()
   })
 
