@@ -19,11 +19,13 @@ const List = () => {
     <div className="p-8 w-full">
       <h2 className="font-semibold text-2xl leading-5">Allowances</h2>
 
-      <div className="grid grid-cols-3 py-8 gap-4">
-        {allowances.map((allowance) => (
-          <Card key={allowance.id} allowance={allowance}></Card>
-        ))}
-      </div>
+      {allowances && (
+        <div className="grid grid-cols-3 py-8 gap-4">
+          {allowances.map((allowance) => (
+            <Card key={allowance.id} allowance={allowance} />
+          ))}
+        </div>
+      )}
     </div>
   )
 }
