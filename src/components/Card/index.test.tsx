@@ -95,6 +95,6 @@ describe('Card', () => {
     render(<Card allowance={mockAllowance} />)
 
     const progressBar = screen.getByRole('progressbar')
-    expect(progressBar).toHaveStyle('width: 75%')
+    expect(progressBar).toHaveStyle('width: 25%')
   })
 })

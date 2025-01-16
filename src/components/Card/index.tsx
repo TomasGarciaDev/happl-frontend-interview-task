@@ -43,7 +43,7 @@ const Card = ({ allowance }: { allowance: Allowance }) => {
             <div className="w-full bg-gray-200 rounded-full h-1 mt-1">
               <div
                 className="bg-lime-400 rounded-full h-1"
-                style={{ width: `${100 - usagePorcentage}%` }}
+                style={{ width: `${usagePorcentage}%` }}
                 role="progressbar"
               ></div>
             </div>
