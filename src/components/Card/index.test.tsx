@@ -6,6 +6,7 @@ import { Allowance } from '@/types/allowances'
 const mockAllowance: Allowance = {
   id: '1',
   name: 'Test Allowance',
+  active: true,
   type: 'Test Type',
 }
 
@@ -33,13 +34,34 @@ describe('Card', () => {
     const cardAllowance: Allowance = {
       id: '2',
       name: 'Card Allowance',
-      type: 'card', // Should trigger the "Spend" prefix
+      type: 'card',
+      active: true,
     }
 
     render(<Card allowance={cardAllowance} />)
 
-    // Should render "Spend Card"
     const spendText = screen.getByText(/Spend Card/i)
     expect(spendText).toBeInTheDocument()
+  })
+
+  it('renders "Activate card" when the allowance is inactive', () => {
+    const inactiveAllowance: Allowance = {
+      id: '3',
+      name: 'Inactive Allowance',
+      type: 'card',
+      active: false,
+    }
+
+    render(<Card allowance={inactiveAllowance} />)
+
+    const activateText = screen.getByText(/Activate card/i)
+    expect(activateText).toBeInTheDocument()
+  })
+
+  it('does not render "Activate card" when the allowance is active', () => {
+    render(<Card allowance={mockAllowance} />)
+
+    const activateText = screen.queryByText(/Activate card/i)
+    expect(activateText).not.toBeInTheDocument()
   })
 })

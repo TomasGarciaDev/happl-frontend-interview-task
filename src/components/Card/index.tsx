@@ -16,6 +16,14 @@ const Card = ({ allowance }: { allowance: Allowance }) => {
             {capitalize(allowance.type)}
           </p>
         </div>
+        <div></div>
+        {!allowance.active && (
+          <div className="content-center bg-gray-100 overflow-hidden rounded-b-lg">
+            <p className="px-4 text-sm font-normal text-lime-500 leading-5">
+              Activate card
+            </p>
+          </div>
+        )}
       </div>
     </div>
   )
