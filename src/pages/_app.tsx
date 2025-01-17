@@ -17,9 +17,9 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.getLayout ?? ((page) => page)
 
   return getLayout(
-    <main className={inter.className}>
+    <div className={inter.className}>
       <Component {...pageProps} />
-    </main>
+    </div>
   )
 }
 
